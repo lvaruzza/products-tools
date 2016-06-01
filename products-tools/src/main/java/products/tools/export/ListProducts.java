@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
 
 import products.db.services.DBService;
 import products.tools.Tool;
@@ -27,7 +29,8 @@ public class ListProducts extends Tool {
 		dbs.listProducts().forEach( product ->{
 			out.println(String.format("%s", product.getSku()));
 			product.getDescriptions().forEach(d -> 
-				out.println(String.format("\t%s (%s)",d.getName().substring(0, Math.min(75, d.getName().length())),d.getLang()))); 
+				out.println(String.format("\t%s (%s)",
+						d.getName().substring(0, Math.min(75, d.getName().length())),d.getLang()))); 
 		});
 	}
 

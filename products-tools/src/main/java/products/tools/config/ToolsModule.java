@@ -8,6 +8,7 @@ import products.db.config.DBModule;
 import products.tools.Runner;
 import products.tools.Tool;
 import products.tools.export.ExportXML;
+import products.tools.export.GetJson;
 import products.tools.export.ListProducts;
 import products.tools.importers.ImportFromLegacy;
 import products.tools.importers.ImportPrices;
@@ -23,6 +24,7 @@ public class ToolsModule extends AbstractModule{
 		toolsBinder.addBinding("import-prices").to(ImportPrices.class);
 		toolsBinder.addBinding("export-xml").to(ExportXML.class);
 		toolsBinder.addBinding("list").to(ListProducts.class);
+		toolsBinder.addBinding("get").to(GetJson.class);
 		
 		binder().bind(Runner.class);
 	}
